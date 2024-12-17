@@ -1,0 +1,42 @@
+# width, height, font name, style  LXGW,dengxian,Inconsolata
+# ';' start of one kind of font definition, '$$' end of definition
+
+# ;0,16,dengxian,regular
+# 密码
+# 返回
+# $$
+
+# ;0,20,dengxian,bold
+# 1234567890
+# $$
+
+# ;0,22,dengxian,regular
+# 统计
+# 信息
+# 确认
+# $$
+
+# ;0,18,LXGW,regular
+# 
+# hello world
+# $$
+
+;0,12,Inconsolata,regular
+0123456789
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+!"#$%&\' ()*+,-./:;<=>?[\]_
+$$
+
+;0,16,Inconsolata,regular
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+$$
+
+;0,20,Inconsolata,bold
+0123456789
+Low.Lim.
+Upp.Lim
+Norm
+FLANGE
+$$
