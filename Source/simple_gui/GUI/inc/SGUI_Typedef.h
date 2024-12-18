@@ -111,6 +111,8 @@ typedef enum
     SGUI_LEFT,
 }SGUI_ALIG_MODE;
 
+struct __font_t;
+
 // Screen device operation interface type declare.
 SGUI_DEVPF_IF_DEFINE(SGUI_INT,          SGUI_FN_IF_INITIALIZE,              (void));
 SGUI_DEVPF_IF_DEFINE(void,              SGUI_FN_IF_CLEAR,                   (void));
@@ -125,9 +127,9 @@ SGUI_DEVPF_IF_DEFINE(void,              SGUI_FN_IF_REFRESH,                 (voi
 
 // System function interface type declare.
 SGUI_DEVPF_IF_DEFINE(void,              SGUI_FN_IF_GET_RTC,                 (SGUI_INT iYear, SGUI_INT iMounth, SGUI_INT iDay, SGUI_INT iWeekDay, SGUI_INT iHour, SGUI_INT iMinute, SGUI_INT iSecond));
-SGUI_DEVPF_IF_DEFINE(SGUI_INT,          SGUI_FN_IF_GET_CHAR_INDEX,          (SGUI_UINT32 uiCode));
+SGUI_DEVPF_IF_DEFINE(SGUI_INT,          SGUI_FN_IF_GET_CHAR_INDEX,          (SGUI_UINT32 uiCode, const struct __font_t* font));
 SGUI_DEVPF_IF_DEFINE(SGUI_CSZSTR,       SGUI_FN_IF_STEP_NEXT,               (SGUI_CSZSTR cszSrc, SGUI_UINT32* puiCode));
-SGUI_DEVPF_IF_DEFINE(SGUI_SIZE,         SGUI_FN_IF_GET_DATA,                (SGUI_SIZE sStartAddr, SGUI_BYTE* pDataBuffer, SGUI_SIZE sReadSize));
+SGUI_DEVPF_IF_DEFINE(SGUI_SIZE,         SGUI_FN_IF_GET_DATA,                (SGUI_SIZE sStartAddr, SGUI_BYTE* pDataBuffer, SGUI_SIZE sReadSize, const struct __font_t* font));
 SGUI_DEVPF_IF_DEFINE(SGUI_BOOL,         SGUI_FN_IF_IS_FULL_WIDTH,           (SGUI_UINT32 uiCode));
 
 typedef struct
@@ -151,16 +153,20 @@ typedef struct
     SGUI_FN_IF_REFRESH                  fnSyncBuffer;
 }SGUI_SCR_DEV;
 
-typedef struct
+struct __font_t
 {
     SGUI_BYTE                            iHalfWidth;
     SGUI_BYTE                            iFullWidth;
     SGUI_BYTE                            iHeight;
+    SGUI_BYTE                            current_font;
     SGUI_FN_IF_GET_CHAR_INDEX           fnGetIndex;
     SGUI_FN_IF_GET_DATA                 fnGetData;
     SGUI_FN_IF_STEP_NEXT                fnStepNext;
     SGUI_FN_IF_IS_FULL_WIDTH            fnIsFullWidth;
-}SGUI_FONT_RES;
+};
+
+typedef struct __font_t SGUI_FONT_RES;
+
 
 typedef struct
 {

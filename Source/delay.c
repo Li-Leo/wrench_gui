@@ -6,23 +6,23 @@ static u32 fac_ms = 0;
 
 void delay_init(u32 SYSCLK)
 {
- 	SysTick->CTRL&=~(1<<2);					//SYSTICKÊ¹ÓÃÍâ²¿Ê±ÖÓÔ´£¬1/8 HCLK	 
-	fac_us=SYSCLK/8;						    //²»ÂÛÊÇ·ñÊ¹ÓÃOS,fac_us¶¼ĞèÒªÊ¹ÓÃ,Ã¿²úÉú1us£¬ĞèÒª¶àÉÙ´ÎÊı£¬ÒòÎªÊÇÍ¨¹ıÒ»¸ö¼ÆÊı¼Ä´æÆ÷¼ÆÊ±µÄ¡£
-	fac_ms=(u16)fac_us*1000;				//·ÇOSÏÂ,´ú±íÃ¿¸ömsĞèÒªµÄsystickÊ±ÖÓÊı   
+ 	SysTick->CTRL&=~(1<<2);					//SYSTICKä½¿ç”¨å¤–éƒ¨æ—¶é’Ÿæºï¼Œ1/8 HCLK	 
+	fac_us=SYSCLK/8;						    //ä¸è®ºæ˜¯å¦ä½¿ç”¨OS,fac_uséƒ½éœ€è¦ä½¿ç”¨,æ¯äº§ç”Ÿ1usï¼Œéœ€è¦å¤šå°‘æ¬¡æ•°ï¼Œå› ä¸ºæ˜¯é€šè¿‡ä¸€ä¸ªè®¡æ•°å¯„å­˜å™¨è®¡æ—¶çš„ã€‚
+	fac_ms=(u16)fac_us*1000;				//éOSä¸‹,ä»£è¡¨æ¯ä¸ªmséœ€è¦çš„systickæ—¶é’Ÿæ•°   
 }
 
 //void delay_us(u32 nus)
 //{
 //	u32 temp;	    	 
-//	SysTick->LOAD=nus*fac_us; 				//Ê±¼ä¼ÓÔØ	    
-//	SysTick->VAL=0x00;        				//Çå¿Õ¼ÆÊıÆ÷
-//	SysTick->CTRL=0x01 ;      				//¿ªÊ¼µ¹Êı 	 
+//	SysTick->LOAD=nus*fac_us; 				//æ—¶é—´åŠ è½½	    
+//	SysTick->VAL=0x00;        				//æ¸…ç©ºè®¡æ•°å™¨
+//	SysTick->CTRL=0x01 ;      				//å¼€å§‹å€’æ•° 	 
 //	do
 //	{
 //		temp=SysTick->CTRL;
-//	}while((temp&0x01)&&!(temp&(1<<16)));	//µÈ´ıÊ±¼äµ½´ï   
-//	SysTick->CTRL=0x00;      	 			//¹Ø±Õ¼ÆÊıÆ÷
-//	SysTick->VAL =0X00;       				//Çå¿Õ¼ÆÊıÆ÷ 
+//	}while((temp&0x01)&&!(temp&(1<<16)));	//ç­‰å¾…æ—¶é—´åˆ°è¾¾   
+//	SysTick->CTRL=0x00;      	 			//å…³é—­è®¡æ•°å™¨
+//	SysTick->VAL =0X00;       				//æ¸…ç©ºè®¡æ•°å™¨ 
 //}
 
 //void delay_us(u32 nus)
@@ -30,15 +30,15 @@ void delay_init(u32 SYSCLK)
 //	u32 temp;
 //    temp = nus*fac_us ;
 //    temp = temp >> 1;
-//	SysTick->LOAD=temp; 				//Ê±¼ä¼ÓÔØ	    
-//	SysTick->VAL=0x00;        				//Çå¿Õ¼ÆÊıÆ÷
-//	SysTick->CTRL=0x01 ;      				//¿ªÊ¼µ¹Êı 	 
+//	SysTick->LOAD=temp; 				//æ—¶é—´åŠ è½½	    
+//	SysTick->VAL=0x00;        				//æ¸…ç©ºè®¡æ•°å™¨
+//	SysTick->CTRL=0x01 ;      				//å¼€å§‹å€’æ•° 	 
 //	do
 //	{
 //		temp=SysTick->CTRL;
-//	}while((temp&0x01)&&!(temp&(1<<16)));	//µÈ´ıÊ±¼äµ½´ï   
-//	SysTick->CTRL=0x00;      	 			//¹Ø±Õ¼ÆÊıÆ÷
-//	SysTick->VAL =0X00;       				//Çå¿Õ¼ÆÊıÆ÷ 
+//	}while((temp&0x01)&&!(temp&(1<<16)));	//ç­‰å¾…æ—¶é—´åˆ°è¾¾   
+//	SysTick->CTRL=0x00;      	 			//å…³é—­è®¡æ•°å™¨
+//	SysTick->VAL =0X00;       				//æ¸…ç©ºè®¡æ•°å™¨ 
 //}
 
 
@@ -56,23 +56,23 @@ void delay_us(u32 nus)
 void delay_xms(u32 nms)
 {
 	u32 temp;		   
-	SysTick->LOAD=(u32)nms*fac_ms;			//Ê±¼ä¼ÓÔØ(SysTick->LOADÎª24bit)
-	SysTick->VAL =0x00;           			//Çå¿Õ¼ÆÊıÆ÷
-	SysTick->CTRL=0x01 ;          			//¿ªÊ¼µ¹Êı  
+	SysTick->LOAD=(u32)nms*fac_ms;			//æ—¶é—´åŠ è½½(SysTick->LOADä¸º24bit)
+	SysTick->VAL =0x00;           			//æ¸…ç©ºè®¡æ•°å™¨
+	SysTick->CTRL=0x01 ;          			//å¼€å§‹å€’æ•°  
 	do
 	{
 		temp=SysTick->CTRL;
-	}while((temp&0x01)&&!(temp&(1<<16)));	//µÈ´ıÊ±¼äµ½´ï   
-	SysTick->CTRL=0x00;       				//¹Ø±Õ¼ÆÊıÆ÷
-	SysTick->VAL =0X00;     		  		//Çå¿Õ¼ÆÊıÆ÷	  	    
+	}while((temp&0x01)&&!(temp&(1<<16)));	//ç­‰å¾…æ—¶é—´åˆ°è¾¾   
+	SysTick->CTRL=0x00;       				//å…³é—­è®¡æ•°å™¨
+	SysTick->VAL =0X00;     		  		//æ¸…ç©ºè®¡æ•°å™¨	  	    
 } 
-//ÑÓÊ±nms 
+//å»¶æ—¶nms 
 //nms:0~65535
 void delay_ms(u32 nms)
 {
 #if 1
-	u8 repeat=nms/540;						//ÕâÀïÓÃ540,ÊÇ¿¼ÂÇµ½Ä³Ğ©¿Í»§¿ÉÄÜ³¬ÆµÊ¹ÓÃ,
-											//±ÈÈç³¬Æµµ½248MµÄÊ±ºò,delay_xms×î´óÖ»ÄÜÑÓÊ±541ms×óÓÒÁË
+	u8 repeat=nms/540;						//è¿™é‡Œç”¨540,æ˜¯è€ƒè™‘åˆ°æŸäº›å®¢æˆ·å¯èƒ½è¶…é¢‘ä½¿ç”¨,
+											//æ¯”å¦‚è¶…é¢‘åˆ°248Mçš„æ—¶å€™,delay_xmsæœ€å¤§åªèƒ½å»¶æ—¶541mså·¦å³äº†
 	u16 remain=nms%540;
 	while(repeat)
 	{

@@ -9,7 +9,8 @@
 
 SGUI_SCR_DEV g_stDeviceInterface;
 HMI_SCREEN_OBJECT* g_arrpstScreenObjs[] = {
-                                &g_stHMIDemo_List,
+                                &g_stHMI_main_screen,
+                                &g_stHMI_menu_List,
                                 &g_stHMI_extended_List,
                                 &g_stHMI_settings_List,
                             };
@@ -21,7 +22,7 @@ bool key_event_is_triggered(void);
 
 
 
-HMI_ENGINE_RESULT InitializeHMIEngineObj(void)
+HMI_ENGINE_RESULT hmi_engine_obj_init(void)
 {
 
     HMI_ENGINE_RESULT eProcessResult;
@@ -68,7 +69,7 @@ HMI_ENGINE_RESULT InitializeHMIEngineObj(void)
 
         }
         /* Active engine object. */
-        eProcessResult = HMI_ActiveEngine(&g_stDemoEngine, HMI_SCREEN_ID_DEMO_LIST);
+        eProcessResult = HMI_ActiveEngine(&g_stDemoEngine, HMI_SCREEN_ID_MAIN_SCREEN);
         //eProcessResult = HMI_ActiveEngine(&g_stDemoEngine, HMI_SCREEN_ID_DEMO_ITEMS_BASE);
         if(HMI_PROCESS_FAILED(eProcessResult))
         {

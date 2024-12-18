@@ -72,7 +72,6 @@ HMI_ENGINE_RESULT HMI_settings_List_Initialize(SGUI_SCR_DEV* pstDeviceIF)
     stListLayout.iY = 0;
     stListLayout.iWidth = pstDeviceIF->stSize.iWidth;
     stListLayout.iHeight = pstDeviceIF->stSize.iHeight;
-    set_display_font(INCONSOLATA_REGULAR_12);
     SGUI_List_Initialize(&s_stListObject, &stListLayout, &font_inconsolata_regular_12, NULL, s_arrstListItems, sizeof(s_arrstListItems)/sizeof(SGUI_ITEMS_ITEM));
     // SGUI_List_Initialize(&s_stDemoListObject, &stListLayout, &GB2312_FZXS12, SCR1_TITLE, s_arrstListItems, sizeof(s_arrstListItems)/sizeof(SGUI_ITEMS_ITEM));
     return HMI_RET_NORMAL;
@@ -178,7 +177,7 @@ HMI_ENGINE_RESULT HMI_settings_List_PostProcess(SGUI_SCR_DEV* pstDeviceIF, HMI_E
             }
             case 1:
             {
-                HMI_SwitchScreen(HMI_SCREEN_ID_DEMO_PAINT_TEXT, NULL);
+                // HMI_SwitchScreen(HMI_SCREEN_ID_DEMO_PAINT_TEXT, NULL);
                 break;
             }
             case 2:
@@ -195,7 +194,7 @@ HMI_ENGINE_RESULT HMI_settings_List_PostProcess(SGUI_SCR_DEV* pstDeviceIF, HMI_E
             {
                 // HMI_SwitchScreen(HMI_SCREEN_ID_DEMO_LIST, NULL);
                 // HMI_SCREEN_ID_DEMO_LIST
-                HMI_GoBack(NULL);
+                // HMI_GoBack(NULL);
                 break;
             }
             case 5:

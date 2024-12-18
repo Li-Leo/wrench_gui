@@ -14,7 +14,7 @@ void SystemInit(void);
 
 void SystemInit(void)
 {
-    // Clock_Init();
+    Clock_Init();
 }
 
 // void PGA_Init(void)

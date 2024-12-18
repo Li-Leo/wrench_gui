@@ -10,23 +10,6 @@
 
 uint8_t OLED_DisplayBuf[8][128];
 
-
-void oledupdata ( void);
-void OLED_init(void);
-void OLED_full(void);
-void OLED_clear(void);
-void Picture_display(const unsigned char *ptr_pic);
-void Picture_ReverseDisplay(const unsigned char *ptr_pic);
-void displayBufferCmd16x16(u16 Hang ,u16 Lie , u16 zifu );
-void displayBufferCmd16x8Clear(u16 Hang ,u16 Lie , u16 zifu );
-void displayBufferCmd16x8(u16 Hang ,u16 Lie , u16 zifu );
-void displayRun( void);
-void idile( void);
-//#define IIC_SCK_1  GPIO0_PDO |= BIT8        // 设置sck接口到     清零
-//#define IIC_SCK_0  GPIO0_PDO &= ~BIT8       //置位
-//#define IIC_SDA_1  GPIO0_PDO |= BIT6        // 设置SDA接口到  
-//#define IIC_SDA_0  GPIO0_PDO &= ~BIT6
-
 #define IIC_SCK_1  GPIO0_PDO |= BIT4        // 设置sck接口到     清零
 #define IIC_SCK_0  GPIO0_PDO &= ~BIT4       //置位
 #define IIC_SDA_1  GPIO0_PDO |= BIT5        // 设置SDA接口到  
@@ -280,8 +263,7 @@ void oled_draw_rectangle(int16_t X, int16_t Y, uint8_t Width, uint8_t Height, ui
 void oled_init(void)
 {
     unsigned char i;
-    for(i=0;i<25;i++)
-    {
+    for (i = 0; i < 25; i++) {
         OLED_send_cmd(OLED_init_cmd[i]);
     }
 }

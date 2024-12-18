@@ -26,6 +26,7 @@
 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 !"#$%&\' ()*+,-./:;<=>?[\]_
+✓×
 $$
 
 ;0,16,Inconsolata,regular
@@ -33,7 +34,7 @@ abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 $$
 
-;0,20,Inconsolata,bold
+;0,22,Inconsolata,bold
 0123456789
 Low.Lim.
 Upp.Lim

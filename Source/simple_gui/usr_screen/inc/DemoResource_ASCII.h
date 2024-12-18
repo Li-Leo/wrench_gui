@@ -4,31 +4,31 @@
 /* Screen 1: List Components. */
 /* Start screen with list. */
 
-#define SCR1_LIST_ITEM1                 ("Preset")
-#define SCR1_LIST_ITEM2                 ("Statistics")
-#define SCR1_LIST_ITEM3                 ("Information")
-#define SCR1_LIST_ITEM4                 ("Diagnosis")
-#define SCR1_LIST_ITEM5                 ("Extended")
-#define SCR1_LIST_ITEM6                 ("Back")
+#define CLOCKWISE           ("Clockwise")
+#define UNIT_NM             ("Nm")
 
-#define SETTINGS        ("Settings")
-#define UNLOCK          ("Unlock")
-#define DATA_LOGGING    ("Data logging")
-#define LOCK            ("Lock")
-#define BACK            ("Back")
+#define SCR1_LIST_ITEM1     ("Preset")
+#define SCR1_LIST_ITEM2     ("Statistics")
+#define SCR1_LIST_ITEM3     ("Information")
+#define SCR1_LIST_ITEM4     ("Diagnosis")
+#define SCR1_LIST_ITEM5     ("Extended")
+#define SCR1_LIST_ITEM6     ("Back")
 
+#define SETTINGS            ("Settings")
+#define UNLOCK              ("Unlock")
+#define DATA_LOGGING        ("Data logging")
+#define LOCK                ("Lock")
+#define BACK                ("Back")
 
-#define ANGLE               ("Angle")
-#define LIMITS              ("Limits")
-#define BOLT                ("Bolt Counter")
-#define ADJUSTMENT          ("Adjustment Lock")
+#define ANGLE               ("\xc3\x97 Angle")
+#define LIMITS              ("\xc3\x97 Limits")
+#define BOLT                ("\xe2\x9c\x93 Bolt Counter")
+#define ADJUSTMENT          ("\xe2\x9c\x93 Adjustment Lock")
 #define TORQUE              ("Torquesensor")
 #define POINT_CALI          ("Point Calibr.")
 #define SELECT_UNIT         ("Select Unit")
 #define LANGUAGE            ("Language")
 #define BACK                ("Back")
-
-
 
 
 #define SCR1_LIST_APPEND1               ("Add item 1")

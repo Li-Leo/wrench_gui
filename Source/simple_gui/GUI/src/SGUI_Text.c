@@ -212,7 +212,7 @@ SGUI_SIZE SGUI_Text_DrawMultipleLinesText(SGUI_SCR_DEV* pstDeviceIF, SGUI_CSZSTR
                         SGUI_RECT_X_START(*pstDisplayArea), SGUI_RECT_Y_START(*pstDisplayArea),
                         SGUI_RECT_WIDTH(*pstDisplayArea), SGUI_RECT_HEIGHT(*pstDisplayArea),
                         eBackColor, eBackColor);
-
+        
         SGUI_RECT_HEIGHT(stCharBitmap) = pstFontRes->iHeight;
         uiLines = 1;
         stCharBitmap.pData = pstDeviceIF->stBuffer.pBuffer;
@@ -338,19 +338,19 @@ SGUI_SIZE SGUI_Text_GetCharacterData(const SGUI_FONT_RES* pstFontRes, SGUI_UINT3
     /*----------------------------------*/
     /* Initialize                       */
     /*----------------------------------*/
-    sGetDataSize =              0;
+    sGetDataSize = 0;
 
     /*----------------------------------*/
     /* Process                          */
     /*----------------------------------*/
     if((NULL != pstFontRes) && (NULL != pDataBuffer) && (0 != sBufferSize))
     {
-        iCharIndex = pstFontRes->fnGetIndex(uiCode);
+        iCharIndex = pstFontRes->fnGetIndex(uiCode, pstFontRes);
         if(SGUI_INVALID_INDEX != iCharIndex)
         {
             sDataBlockSize = SGUI_USED_BYTE(pstFontRes->iHeight)*(pstFontRes->iHalfWidth);
             sReadDataSize = pstFontRes->fnIsFullWidth(uiCode)?(SGUI_USED_BYTE(pstFontRes->iHeight)*(pstFontRes->iFullWidth)):sDataBlockSize;  // modified
-            sGetDataSize = pstFontRes->fnGetData(iCharIndex*sDataBlockSize, pDataBuffer, sReadDataSize>sBufferSize?sBufferSize:sReadDataSize);
+            sGetDataSize = pstFontRes->fnGetData(iCharIndex*sDataBlockSize, pDataBuffer, sReadDataSize>sBufferSize?sBufferSize:sReadDataSize, pstFontRes);
         }
     }
 

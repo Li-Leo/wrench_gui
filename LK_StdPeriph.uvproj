@@ -583,19 +583,9 @@
               <FilePath>.\Source\simple_gui\usr_screen\src\font_data.c</FilePath>
             </File>
             <File>
-              <FileName>inconsolata_bold_20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\simple_gui\usr_screen\src\inconsolata_bold_20.c</FilePath>
-            </File>
-            <File>
               <FileName>inconsolata_regular_16.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\simple_gui\usr_screen\src\inconsolata_regular_16.c</FilePath>
-            </File>
-            <File>
-              <FileName>list_demo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\simple_gui\usr_screen\src\list_demo.c</FilePath>
             </File>
             <File>
               <FileName>screen_proc.c</FileName>
@@ -611,6 +601,21 @@
               <FileName>inconsolata_regular_12.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\simple_gui\usr_screen\src\inconsolata_regular_12.c</FilePath>
+            </File>
+            <File>
+              <FileName>main_screen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\simple_gui\usr_screen\src\main_screen.c</FilePath>
+            </File>
+            <File>
+              <FileName>inconsolata_bold_22.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\simple_gui\usr_screen\src\inconsolata_bold_22.c</FilePath>
+            </File>
+            <File>
+              <FileName>main_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\simple_gui\usr_screen\src\main_list.c</FilePath>
             </File>
           </Files>
         </Group>

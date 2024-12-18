@@ -9,26 +9,26 @@ ARM Macro Assembler    Page 1
     3 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
     4 00000000         ; </h>
     5 00000000         
-    6 00000000 00000200 
+    6 00000000 00000400 
                        Stack_Size
-                               EQU              0x00000200
+                               EQU              0x00000400
     7 00000000         
     8 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
 =3
     9 00000000         Stack_Mem
                                SPACE            Stack_Size
-   10 00000200         __initial_sp
-   11 00000200         
-   12 00000200         
-   13 00000200         ; <h> Heap Configuration
-   14 00000200         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-   15 00000200         ; </h>
-   16 00000200         
-   17 00000200 00000000 
+   10 00000400         __initial_sp
+   11 00000400         
+   12 00000400         
+   13 00000400         ; <h> Heap Configuration
+   14 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   15 00000400         ; </h>
+   16 00000400         
+   17 00000400 00000000 
                        Heap_Size
                                EQU              0x00000000
-   18 00000200         
-   19 00000200                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+   18 00000400         
+   19 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    20 00000000         __heap_base
    21 00000000         Heap_Mem
@@ -285,7 +285,7 @@ ARM Macro Assembler    Page 5
               00000000 
               00000000 
               00000000 
-              00000200 
+              00000400 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\obj\startup_lks32mc03x.d -o.\obj\startup_lks32mc03x.o -IC:\Keil_
@@ -314,7 +314,7 @@ Symbol: Stack_Mem
       At line 205 in file Include\startup_lks32mc03x.s
       At line 207 in file Include\startup_lks32mc03x.s
 
-__initial_sp 00000200
+__initial_sp 00000400
 
 Symbol: __initial_sp
    Definitions
@@ -649,7 +649,7 @@ Symbol: Heap_Size
       At line 21 in file Include\startup_lks32mc03x.s
       At line 206 in file Include\startup_lks32mc03x.s
 
-Stack_Size 00000200
+Stack_Size 00000400
 
 Symbol: Stack_Size
    Definitions

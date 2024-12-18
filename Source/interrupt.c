@@ -1,28 +1,11 @@
 #include "bsp.h"
+#include "flexible_button.h"
 
 void SetTime_TimeOut_Counter(u16 hTimeout);
 // volatile u32 hardFault;
 void bldc_table( void );
 
 volatile u16 hBLDC_PWM_value;
-
-void NMI_Handler(void)
-{
-
-}
-
-void SVC_Handler(void)
-{
-
-}
-void PendSV_Handler(void)
-{
-
-}
-void SysTick_Handler(void)
-{
-
-}
 
 void HardFault_Handler(void)
 {
@@ -63,21 +46,23 @@ void CSX_IRQHandler(void)
     // while (1)
         ;
 }
-u8 Uart0_Buff = 0;
-void UART_IRQHandler(void)
-{
-    if ( UART_IF & UART_IF_RcvOver ){   // ��������ж�?
-		UART_IF |= UART_IF_RcvOver;     // ���������ɱ�־λ
-		Uart0_Buff = UART_BUFF;  // ���� 1 Byte����
 
-        // UartAnalysis(Uart0_Buff);  
-	}
-    if ( UART_IF &UART_IF_SendOver ){   // ��������ж�?
-        UART_IF |= UART_IF_SendOver;  // ���������ɱ�־λ
-	}    
-    UART_IF = 0xff;
-}
- 
+// u8 Uart0_Buff = 0;
+// void UART_IRQHandler(void)
+// {
+//     if ( UART_IF & UART_IF_RcvOver ){
+// 		UART_IF |= UART_IF_RcvOver;
+// 		Uart0_Buff = UART_BUFF;
+
+//         // UartAnalysis(Uart0_Buff);  
+// 	}
+//     if ( UART_IF &UART_IF_SendOver ){
+//         UART_IF |= UART_IF_SendOver;
+// 	}    
+//     UART_IF = 0xff;
+// }
+
+
 void NSX_IRQHandler(void)
 {
     // while (1)
@@ -96,15 +81,14 @@ void SPI_IRQHandler(void)
         ;
 }
 
-u16 flag_20ms;
 
+u16 flag_ms;
 void TIMER0_IRQHandler(void)
 {
     if(UTIMER0_IF & TIM_IRQ_IF_ZC){
         UTIMER0_IF = TIM_IRQ_IF_ZC;
-        gTimeBaseFlg = 1;
-        if (flag_20ms++ >= 10) {
-            flag_20ms = 0;
+        if (flag_ms++ >= 20) {
+            flag_ms = 0;
             flex_button_scan();
         }
 
@@ -145,7 +129,7 @@ void GPIO_IRQHandler(void)
     EXTI_IF = GPIO_P05_EXTI_IF;
 	}
 }
- 
+
 
 // uint8_t gUart0Send;
 

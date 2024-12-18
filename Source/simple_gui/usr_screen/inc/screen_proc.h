@@ -58,8 +58,8 @@ HMI_EVENT_TYPE_DECLARE(DATA_EVENT, DUMMY_DATA_EVENT_DATA);
 //= Macro definition.                                                   =//
 //=======================================================================//
 #define     HMI_SCREEN_ID_DEMO_SCROLLING_TEXT           (1001)
-#define     HMI_SCREEN_ID_DEMO_PAINT_TEXT               (1002)
-#define     HMI_SCREEN_ID_DEMO_LIST                     (1003)
+#define     HMI_SCREEN_ID_MAIN_SCREEN               (1002)
+#define     HMI_SCREEN_ID_MAIN_LIST                     (1003)
 #define     HMI_SCREEN_ID_DEMO_TEXT_NOTICE              (1004)
 #define     HMI_SCREEN_ID_DEMO_BASIC_PAINT              (1005)
 #define     HMI_SCREEN_ID_DEMO_VARIABLE_BOX             (1006)
@@ -83,9 +83,10 @@ HMI_EVENT_TYPE_DECLARE(DATA_EVENT, DUMMY_DATA_EVENT_DATA);
 extern HMI_ENGINE_OBJECT        g_stDemoEngine;
 
 /* Screen display objects. */
-extern HMI_SCREEN_OBJECT        g_stHMIDemo_List;
+extern HMI_SCREEN_OBJECT        g_stHMI_menu_List;
 extern HMI_SCREEN_OBJECT		g_stHMI_extended_List;
 extern HMI_SCREEN_OBJECT		g_stHMI_settings_List;
+extern HMI_SCREEN_OBJECT		g_stHMI_main_screen;
 
 //=======================================================================//
 //= Function declare.                                                   =//
@@ -94,17 +95,9 @@ extern HMI_SCREEN_OBJECT		g_stHMI_settings_List;
 extern "C"
 {
 #endif /* __cplusplus */
-HMI_ENGINE_RESULT   InitializeHMIEngineObj(void);
-void                DemoMainProcess(void);
 
-bool                SysTickTimerTriggered(void);
-bool                RTCTimerTriggered(void);
-bool                UserEventTriggered(void);
-
-void                SysTickTimerEnable(bool bEnable);
-void                RTCTimerEnable(bool bEnable);
-
-HMI_ENGINE_RESULT InitializeHMIEngineObj(void);
+void gui_main_process(void);
+HMI_ENGINE_RESULT hmi_engine_obj_init(void);
 
 #ifdef __cplusplus
 }

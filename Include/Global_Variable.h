@@ -5,8 +5,6 @@
 #include "MC_type.h"
 
 
- 
-extern volatile u8 gTimeBaseFlg;
- 
+
 #endif
 

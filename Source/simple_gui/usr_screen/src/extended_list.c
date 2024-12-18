@@ -68,7 +68,6 @@ HMI_ENGINE_RESULT HMI_extendedList_Initialize(SGUI_SCR_DEV* pstDeviceIF)
     stListLayout.iY = 0;
     stListLayout.iWidth = pstDeviceIF->stSize.iWidth;
     stListLayout.iHeight = pstDeviceIF->stSize.iHeight;
-    set_display_font(INCONSOLATA_REGULAR_12);
     SGUI_List_Initialize(&s_stListObject, &stListLayout, &font_inconsolata_regular_12, NULL, s_arrstListItems, sizeof(s_arrstListItems)/sizeof(SGUI_ITEMS_ITEM));
     // SGUI_List_Initialize(&s_stDemoListObject, &stListLayout, &GB2312_FZXS12, SCR1_TITLE, s_arrstListItems, sizeof(s_arrstListItems)/sizeof(SGUI_ITEMS_ITEM));
     return HMI_RET_NORMAL;
@@ -94,20 +93,12 @@ HMI_ENGINE_RESULT HMI_extendedList_RefreshScreen(SGUI_SCR_DEV* pstDeviceIF, cons
 
 HMI_ENGINE_RESULT HMI_extendedList_ProcessEvent(SGUI_SCR_DEV* pstDeviceIF, const HMI_EVENT_BASE* pstEvent, SGUI_INT* piActionID)
 {
-    /*----------------------------------*/
-    /* Variable Declaration             */
-    /*----------------------------------*/
+
     HMI_ENGINE_RESULT           eProcessResult;
     SGUI_UINT16                 uiKeyCode;
     SGUI_UINT16                 uiKeyValue;
-    // KEY_PRESS_EVENT*            pstKeyEvent;
     SGUI_INT                    iProcessAction;
-    // SGUI_SIZE                   sInsertDataIdx;
-    // SGUI_ITEMS_ITEM*            pstItemObj;
 
-    /*----------------------------------*/
-    /* Initialize                       */
-    /*----------------------------------*/
     eProcessResult =            HMI_RET_NORMAL;
     // pstKeyEvent =               (KEY_PRESS_EVENT*)pstEvent;
     iProcessAction =            HMI_DEMO_PROC_NO_ACT;
@@ -174,7 +165,7 @@ HMI_ENGINE_RESULT HMI_extendedList_PostProcess(SGUI_SCR_DEV* pstDeviceIF, HMI_EN
             }
             case 1:
             {
-                HMI_SwitchScreen(HMI_SCREEN_ID_DEMO_PAINT_TEXT, NULL);
+                // HMI_SwitchScreen(HMI_SCREEN_ID_DEMO_PAINT_TEXT, NULL);
                 break;
             }
             case 2:
